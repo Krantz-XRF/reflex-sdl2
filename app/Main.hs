@@ -249,10 +249,10 @@ main :: IO ()
 main = do
   initializeAll
   let ogl = defaultOpenGL{ glProfile = Core Debug 3 3 }
-      cfg = defaultWindow{ windowOpenGL      = Just ogl
-                         , windowResizable   = True
-                         , windowHighDPI     = False
-                         , windowInitialSize = V2 640 480
+      cfg = defaultWindow{ windowGraphicsContext = OpenGLContext ogl
+                         , windowResizable       = True
+                         , windowHighDPI         = False
+                         , windowInitialSize     = V2 640 480
                          }
   window <- createWindow "reflex-sdl2-exe" cfg
   void $ glCreateContext window
